@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         	"http://struts.apache.org/dtds/struts-2.3.dtd">
+          
+<struts>
+    <!-- 使用动态方法访问action -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    
+   
+    <package name="default" extends="struts-default"  namespace="/user">
+        <action name="userAction_*" class="com.lingzhuo.action.UserAction" method="{1}">
+         <!--    <result name="success">/success.jsp</result> -->
+               <!-- 默认跳转方式为：服务器端跳转  默认:type="dispatcher" 服务器端跳转，但是只能跳页面
+                  type="redirect" 客户端跳转，只能跳转页面
+                  type="chain" 服务器端跳转，只能跳转action,后一个action可以共享前一个action中请求数据
+                  type="redirectAction " 客户端跳转，只能跳转action ,后一个action无法共享前一个action请求数据
+              -->
+         <!--   <result name="success" type="redirectAction">empAction_select</result>   -->
+            
+            <result name="success" type="redirectAction">empAction_select.action?username=${username}</result>
+           
+           
+           <!-- <result name="success" type="chain">
+           <param name="actionName">empAction_select</param>
+           </result>   异常-->
+        </action>
+        
+         <action name="empAction_*" class="com.lingzhuo.action.EmpAction" method="{1}">
+         </action>
+        
+    </package>
+
+   <!-- 包含其他structs配置文件 -->
+   <include file="structs_ognl.xml"></include>
+   <include file="structs_upload.xml"></include>
+  
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         	"http://struts.apache.org/dtds/struts-2.3.dtd">
+         	
+<struts>
+<package name="upload" extends="struts-default" namespace="/upload">
+<action name="uploadAction_*" class="com.lingzhuo.action.UploadAction" method="{1}">
+    <!-- <interceptor-ref name="fileUpload">
+    <param name="maximumSize">52428800</param>
+    </interceptor-ref> -->
+	<result name="success">/success.jsp</result>
+	<result name="error">/error.jsp</result>
+</action>
+
+<action name="downloadAction_*" class="com.lingzhuo.action.DownloadAction" method="{1}">
+  
+	<result name="success" type="stream">
+	            <param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}</param>
+				<param name="inputName">inputStream</param><!-- 对应action中的变量名 -->
+				<param name="bufferSize">4096</param>
+	</result>
+	
+	<result name="error">/error.jsp</result>
+</action>
+
+
+
+</package>
+</struts>

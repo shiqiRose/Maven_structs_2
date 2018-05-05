@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.lingzhuo</groupId>
+  <artifactId>Maven_structs_1</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Maven_structs_1 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <properties>
+  <struts2.version>2.3.1</struts2.version>
+  <javassist.version>3.12.1.GA</javassist.version>
+  </properties>
+  <dependencies>
+        <!-- servlet3 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        
+         <!-- 读取字节码包 -->
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
+        </dependency>
+        
+        
+        <!-- Struts2-core 依赖 -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>${struts2.version}</version>
+
+        </dependency>
+  </dependencies>
+  <build>
+    <finalName>Maven_structs_1</finalName>
+  </build>
+</project>
